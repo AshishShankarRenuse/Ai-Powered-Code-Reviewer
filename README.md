@@ -80,7 +80,7 @@ Example request:
 Example response:
 ```json
 {
-  "review": ❌ Bad Code:
+  "review": "❌ Bad Code:
 
 function sum() { 
 return a + b; 
@@ -93,7 +93,7 @@ return a + b;
 
 function sum(a, b) {
   if (typeof a !== 'number' || typeof b !== 'number') {
-    return "Error: Both arguments must be numbers.";
+    return "Error: Both arguments must be numbers.r";
   }
   return a + b;
 }

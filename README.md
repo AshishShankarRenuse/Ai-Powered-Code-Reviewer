@@ -73,14 +73,35 @@ The server will listen on port 3000.
 Example request:
 ```json
 {
-  "code": "function sum(a, b) { return a + b; }"
+  "code": "function sum() { return a + b; }"
 }
 ```
 
 Example response:
 ```json
 {
-  "review": "..."
+  "review": ❌ Bad Code:
+
+function sum() { 
+return a + b; 
+}
+🔍 Issues:
+
+❌ The function sum does not define or receive any parameters. It relies on variables a and b being available in the scope where the function is defined, which makes the function unpredictable and prone to errors if a and b are not defined or have unexpected values.
+❌ Lack of input validation or type checking can lead to unexpected results if a and b are not numbers.
+✅ Recommended Fix:
+
+function sum(a, b) {
+  if (typeof a !== 'number' || typeof b !== 'number') {
+    return "Error: Both arguments must be numbers.";
+  }
+  return a + b;
+}
+💡 Improvements:
+
+✔ The function now accepts two parameters, a and b, making it clear what inputs it expects.
+✔ Added a check to ensure that both inputs are numbers. If not, it returns an error message, providing basic input validation.
+✔ The function now explicitly returns the sum of a and b, making its purpose clear.
 }
 ```
 
